@@ -14,10 +14,18 @@
 
 Chameleon is a tool which assists red teams in categorising their infrastructure under arbitrary categories. Currently, the tool supports arbitrary categorisation for Bluecoat, McAfee Trustedsource and IBM X-Force. However, the tool is designed in such a way that additional proxies can be added with ease.
 
+# Install
+
+```
+apt-get update && ap-get install python && apt-get install python-pip
+pip install -r requirements.txt
+
+```
+
 # Usage
 
 ```
-usage: chameleon.py [-h] [--proxy <proxy>] [--check] [--submit]
+usage: chameleon.py [-h] [--proxy <proxy>] [--check] [--submit <site>]
                     [--domain <domain>]
 
 optional arguments:
@@ -25,7 +33,7 @@ optional arguments:
   --proxy <proxy>    Proxy type: a = all, b = bluecoat, m = mcafee, i = IBM
                      Xforce
   --check            Perform check on current category
-  --submit           Submit new category
+  --submit           Submit new category site from target site
   --domain <domain>  Domain to validate
 ```
 

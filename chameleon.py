@@ -11,7 +11,7 @@ class Chameleon:
         parser = argparse.ArgumentParser(description = "")
         parser.add_argument("--proxy", metavar="<proxy>", dest = "proxy", default = None, help = "Proxy type: a = all, b = bluecoat, m = mcafee, i = IBM Xforce")
         parser.add_argument("--check", action='store_true', help = "Perform check on current category")
-        parser.add_argument("--submit", action='store_true', help = "Submit new category")
+        parser.add_argument("--submit", metavar="<site>", dest = "submit", default = None, help = "Submit new category from target site")
         parser.add_argument("--domain", metavar="<domain>", dest = "domain", default = None, help = "Domain to validate")
         args = parser.parse_args()
 
@@ -51,7 +51,7 @@ class Chameleon:
                 while True:
                     choice = raw_input().lower()
                     if choice == 'Y' or choice =='y':
-                        b = bluecoat.Bluecoat(args.domain, 'https://www.bankofamerica.com')
+                        b = bluecoat.Bluecoat(args.domain, args.submit)
                         b.run()
                         break
                     elif choice == 'N' or choice == 'n':
